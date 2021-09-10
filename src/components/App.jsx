@@ -1,21 +1,31 @@
 import reactDom from 'react-dom';
 import React, { Component } from 'react';
 import DisplayName from './DisplayName/DisplayName';
+import NamesList from './NamesList/NamesList';
+import AlertOnClick from './AlertOnClick/AlertOnClick';
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            firstName: 'Reggie',
-            lastName: 'White'
+            names: ['Mike', 'Nevin', 'Aaron', 'Tory', 'Kelly']
         }
+    }
+
+    alertOnClick = () => {
+        return (
+            alert('DevCodeCamp')
+        );
     }
 
 
     render() {
         return (
-            <DisplayName name={this.state}/>
-        )
+            <React.Fragment>
+                <NamesList listName={this.state.names} />
+                <AlertOnClick click={this.alertOnClick} />
+            </React.Fragment>
+        );
     }
 }
 
