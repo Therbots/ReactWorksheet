@@ -4,6 +4,7 @@ import DisplayName from './DisplayName/DisplayName';
 import NamesList from './NamesList/NamesList';
 import AlertOnClick from './AlertOnClick/AlertOnClick';
 import SuperheroTable from './SuperheroTable/SuperheroTable';
+import CreateSuperhero from './CreateSuperhero/CreateSuperhero';
 
 class App extends Component {
     constructor(props) {
@@ -11,6 +12,7 @@ class App extends Component {
         this.state = {
             names: ['Mike', 'Nevin', 'Aaron', 'Tory', 'Kelly']
         }
+
         this.state = {
             superheroes: [
                 {
@@ -35,11 +37,21 @@ class App extends Component {
         }
     }
 
+    addSuperheroToSuperheroes(superheroToAdd) {
+        let tempSuperhero = this.state.superheroes;
+        tempSuperhero.push(superheroToAdd);
+        this.setState({
+            superheroes: tempSuperhero
+        });
+    }
+
     alertOnClick = () => {
         return (
             alert('DevCodeCamp')
         );
     }
+
+    
 
 
     render() {
@@ -49,6 +61,8 @@ class App extends Component {
                 <SuperheroTable superhero={this.state.superheroes} />
                 {/* <NamesList listName={this.state.names} /> */}
                 <AlertOnClick click={this.alertOnClick} />
+                <CreateSuperhero addNewSuperhero={this.addSuperheroToSuperheroes} />
+                
                 
             </React.Fragment>
         );

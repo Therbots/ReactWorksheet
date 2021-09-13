@@ -1,6 +1,8 @@
 table, th, td, tr {
     border: 1px solid black;
     column-count: 3;
+    column-width: 50px;
+    column-rule: 4px double black;
 }
 
 .column {
